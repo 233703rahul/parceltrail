@@ -1,0 +1,174 @@
+
+
+.main_la {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.card_la {
+  background-color: rgb(211, 206, 206);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.img-fuild_Lo {
+  width: 100%;
+  margin-bottom: -5px;
+}
+
+.d_Lo {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+}
+
+.Login_Justify {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login_coloumn_md_7 {
+  width: 100%;
+  max-width: 700px;
+}
+
+.Login_row_g7 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Login_coloumn {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.Login_3 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: floralwhite;
+}
+
+.Login_4 {
+  padding: 40px;
+}
+
+.logo_la {
+  margin-top: -5px;
+    width: 80px;
+    height: 80px;
+    margin-right: -35px;
+  
+}
+
+.LogoName_la{
+  width: 172px;
+  height: 75px;
+  margin-right: 44px;
+}
+
+.Head_Lo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.Sign_Lo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.email_Lo {
+  position: relative;
+  margin-bottom: 2rem;
+  
+}
+
+.email_Lo1 {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s;
+  padding-top: 10px;
+}
+
+.email_Lo input:focus + label,
+.email_Lo input:not(:placeholder-shown) + label {
+  top: -17px;;
+  font-size: 12px;
+  color: #333;
+}
+
+.Password_Lo {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.password_Lo1 {
+  position: absolute;
+  top: -12px;
+  transform: translateY(-50%);
+  color: rgb(73, 72, 72);
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.password_Lo1 input:focus + label,
+.password_Lo1 input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 12px;
+  color: #333;
+}
+
+.Login_Lo {
+  margin-top: 20px;
+}
+
+.Login_btn_Lo {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:#ba360a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Login_btn_Lo:hover {
+  background-color: #333;
+}
+
+.Dont {
+  margin-top: 20px;
+  color: #999;
+}
+
+.Dont a {
+  color: #999;
+  text-decoration: none;
+}
+
+.Dont a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "UserName": "Rahul",
+      "email": "a@gmail.com",
+      "password": "12we3456",
+      "id": 1
+    },
+    {
+      "UserName": "Rahul",
+      "email": "a@gmail.com",
+      "password": "12we3456",
+      "id": 2
+    },
+    {
+      "UserName": "sruthy",
+      "email": "sruthy@s.com",
+      "password": "dsr45ty6",
+      "id": 3
+    },
+    {
+      "UserName": "one",
+      "email": "one@one.com",
+      "password": "awe34567",
+      "id": 4
+    },
+    {
+      "UserName": "RAhul",
+      "email": "a@a.com",
+      "password": "qw2345r6",
+      "id": 5
+    },
+    {
+      "UserName": "sruthy",
+      "email": "hc@a.com",
+      "password": "jhjh6tr54",
+      "id": 6
+    },
+    {
+      "UserName": "Athul",
+      "email": "a@gmail.com",
+      "password": "ascasdskdbs",
+      "id": 7
+    },
+    {
+      "UserName": "asdsa",
+      "email": "a@df.com",
+      "password": "asdsadad",
+      "id": 8
+    },
+    {
+      "UserName": "Meera",
+      "email": "Meera@gmail.com",
+      "password": "asfejrhtt",
+      "id": 9
+    },
+    {
+      "UserName": "Mariya",
+      "email": "sacsa@gmail.com",
+      "password": "ajbbjasjsbj",
+      "id": 10
+    },
+    {
+      "UserName": "insaf",
+      "email": "i@i.com",
+      "password": "gfy6453y",
+      "id": 11
+    }
+  ]
+}

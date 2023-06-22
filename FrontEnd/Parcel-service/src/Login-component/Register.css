@@ -1,0 +1,159 @@
+/* Reset styles */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Global styles */
+/* body {
+  font-family: Arial, sans-serif;
+} */
+
+/* Section with background image */
+.image_Re {
+  background-image: url('https://images.pexels.com/photos/7412094/pexels-photo-7412094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error{
+  margin-right: 23rem;
+  color: #fc5353;
+  margin-bottom: 25px;
+  margin-left: 65px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+/* Container */
+.heading_Re {
+  display: flex;
+  justify-content: center;
+  margin-right: 374px;
+  padding-left: 10px;
+}
+
+.container3 {
+  width: 700px;
+}
+
+/* Card */
+.card_Re {
+  background-color:rgba(192, 181, 181, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body_Re {
+  padding: 30px;
+}
+
+/* Logo */
+.logo_Re {
+  width: 70px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* Heading */
+.h1_Re {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Create an account heading */
+.Create_Re {
+  font-size: 25px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Form */
+.form_Re {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* Form input */
+.YourName_Re1,
+.email_Re1,
+.password_Re2 {
+  width: 80%;
+
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-color: #000;
+  border-style:groove;
+  border-width: 1px;
+  margin-left: 60px;
+}
+
+/* Form label */
+.YourName_Re2,
+.email_Re2,
+.Password_Re_1 {
+  position:relative;
+  pointer-events: none;
+  top: 50%;
+  margin-left: 60px;
+  transform: translateY(-50%);
+  background-color: rgba(192, 181, 181, 0.9);
+ 
+  padding: 0 5px;
+}
+
+/* Checkbox */
+.Check_box_Re {
+  margin-right: 5px;
+  width:15px;
+  margin-bottom: 6px;
+}
+
+/* Terms of service link */
+.Terms_Re {
+  color: #000;
+  margin-right: 230px;
+}
+
+/* Register button */
+.Register_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.btn_Re {
+  background-color: #d9531e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: -20px;
+  transition: background-color 0.3s;
+}
+
+.btn_Re:hover {
+  background-color: #28201c;
+}
+
+/* Already have an account text */
+.Already_Re {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Login link */
+.Login_Re {
+  color: #000;
+  text-align: center;
+}
