@@ -96,6 +96,7 @@
     overflow: hidden;
     /* CSS counters to number the steps */
     counter-reset: step;
+    margin-top: 130px;
   }
   
   #progressbar li {

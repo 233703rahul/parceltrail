@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background: rgb(205,184,193);
+background: linear-gradient(90deg, rgba(205,184,193,1) 1%, rgba(202,209,217,1) 53%);
 }
 
 .card_la {
@@ -45,7 +46,9 @@
   flex: 0 0 50%;
   max-width: 50%;
 }
-
+.Error{
+  color: red;
+}
 .Login_3 {
   flex: 0 0 50%;
   max-width: 50%;
@@ -60,17 +63,19 @@
 }
 
 .logo_la {
-  margin-top: -5px;
-    width: 80px;
-    height: 80px;
-    margin-right: -35px;
+  margin-top: -55px;
+  width: 107px;
+  height: 80px;
+  margin-right: -35px;
   
 }
 
 .LogoName_la{
-  width: 172px;
-  height: 75px;
-  margin-right: 44px;
+  margin-top: -53px;
+  width: 188px;
+  height: 76px;
+  margin-left: -11px;
+  margin-right: 55px;
 }
 
 .Head_Lo {

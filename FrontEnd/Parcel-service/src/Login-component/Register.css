@@ -12,7 +12,7 @@
 
 /* Section with background image */
 .image_Re {
-  background-image: url('https://images.pexels.com/photos/7412094/pexels-photo-7412094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-image: url('https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -26,7 +26,7 @@
   color: #fc5353;
   margin-bottom: 25px;
   margin-left: 65px;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
 
 }
 
@@ -44,9 +44,14 @@
 
 /* Card */
 .card_Re {
-  background-color:rgba(192, 181, 181, 0.8);
+  /* background-color:rgba(192, 181, 181, 0.8);
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
 .card-body_Re {
@@ -66,6 +71,13 @@
   font-weight: bold;
   margin: 0;
 }
+.Name_Re{
+  margin-top: -8px;
+  margin-left: -52px;
+  width: 246px;
+  height: 63px;
+}
+
 
 /* Create an account heading */
 .Create_Re {
@@ -106,7 +118,7 @@
   top: 50%;
   margin-left: 60px;
   transform: translateY(-50%);
-  background-color: rgba(192, 181, 181, 0.9);
+ 
  
   padding: 0 5px;
 }

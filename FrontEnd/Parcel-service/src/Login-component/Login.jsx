@@ -111,7 +111,7 @@ function Login() {
                     </div>
 
                     <p className="Dont">
-                      Don't have an account? <a href="#!">Register here</a>
+                      Don't have an account? <a href="#!" onClick={()=>{navigate('/Register')}}>Register here</a>
                     </p>
                   </form>
                 </div>

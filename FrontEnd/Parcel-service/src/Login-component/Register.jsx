@@ -70,19 +70,14 @@ function Register() {
 
   return (
     <section
-      className="image_Re"
-      style={{
-        backgroundImage:
-          "url('https://images.pexels.com/photos/7412094/pexels-photo-7412094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"
-      }}
-    >
+    className="image_Re">
       <div className="d_Re">
         <div className="container3">
           <div className="card_Re">
             <div className="card-body_Re">
               <div className="heading_Re">
                 <img src="\src\assets\logo.png" className="logo_Re" />
-                <p className="h1_Re"> Parcel Service</p>
+                <img src="\src\assets\Name.png" className="Name_Re" />
               </div>
 
               <p className="Create_Re">Create an account</p>
