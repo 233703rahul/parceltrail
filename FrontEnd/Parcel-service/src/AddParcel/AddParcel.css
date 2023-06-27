@@ -56,7 +56,7 @@
   }
   
   /* buttons */
-  #msform .action-button {
+  #msform .action-buttons {
     width: 100px;
     background: orangered;
     font-weight: bold;
@@ -70,8 +70,8 @@
     font-size: 14px;
   }
   
-  #msform .action-button:hover,
-  #msform .action-button:focus {
+  #msform .action-buttons:hover,
+  #msform .action-buttons:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px orangered;
   }
   
@@ -97,6 +97,14 @@
     /* CSS counters to number the steps */
     counter-reset: step;
     margin-top: 130px;
+  }
+  .error{
+    display: flex;
+    flex-direction: row;
+    margin-right: 15rem;
+    color: #fc5353;
+    margin-bottom: 1px;
+    margin-left: 0px;
   }
   
   #progressbar li {
@@ -170,3 +178,5 @@
     font-weight: 800;
     font-size: 24px;
   }
+
+  

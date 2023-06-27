@@ -9,8 +9,12 @@ import Landing from './LandingComponent/Landing.jsx'
 import AddParcel from './AddParcel/AddParcel.jsx'
 import SearchParcel from './Home-component/SearchParcel.jsx'
 import TrackParcel from './Home-component/TrackParcel.jsx'
+import { ChakraProvider } from '@chakra-ui/react'
+
+
 function App() {
     return (
+        <ChakraProvider>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Landing />} />
@@ -27,17 +31,18 @@ function App() {
                 
             </Routes>
         </BrowserRouter>
+        </ChakraProvider>
 
     )
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
+     <App />
     //  <App />
     //  <Register />
     // <Home/>
     //    <Login />
-    <App />
+  
     // <Landing />
 
 

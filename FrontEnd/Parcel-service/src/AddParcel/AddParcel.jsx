@@ -1,18 +1,63 @@
 import React, { useState } from 'react';
 import './AddParcel.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Navigation from '../Home-component/Navigation';
 
+
+
 function AddParcel() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [weight, setWeight] = useState('');
-  const [price, setPrice] = useState(0);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    pincode: '',
+    senderAddress: '',
+    receiverName: '',
+    receiverPinCode: '',
+    receiverAddress: '',
+    comments: '',
+  });
+  const [errors, setErrors] = useState({});
 
   const handleNextClick = () => {
-    if (currentStep < 3) {
-      setCurrentStep(currentStep + 1);
+    if (currentStep === 1) {
+      if (
+        !formData.firstName ||
+        !formData.lastName ||
+        !formData.email ||
+        !formData.phone ||
+        !formData.pincode ||
+        !formData.senderAddress
+      ) {
+        // Show error message for incomplete fields
+        setErrors({
+          firstName: !formData.firstName ? 'First name is required.' : '',
+          lastName: !formData.lastName ? 'Last name is required.' : '',
+          email: !formData.email ? 'Email is required.' : '',
+          phone: !formData.phone ? 'Phone is required.' : '',
+          pincode: !formData.pincode ? 'Pincode is required.' : '',
+          senderAddress: !formData.senderAddress ? 'Sender address is required.' : '',
+        });
+        return;
+      }
+    } else if (currentStep === 2) {
+      if (!formData.receiverName || !formData.receiverPinCode || !formData.receiverAddress) {
+        // Show error message for incomplete fields
+        setErrors({
+          receiverName: !formData.receiverName ? 'Receiver name is required.' : '',
+          receiverPinCode: !formData.receiverPinCode ? 'Receiver pin code is required.' : '',
+          receiverAddress: !formData.receiverAddress ? 'Receiver address is required.' : '',
+        });
+        return;
+      }
     }
+
+    setCurrentStep(currentStep + 1);
   };
 
   const handlePreviousClick = () => {
@@ -24,21 +69,104 @@ function AddParcel() {
   const handleWeightChange = (e) => {
     const newWeight = e.target.value;
     setWeight(newWeight);
-    calculatePrice(newWeight);
+    // calculatePrice(newWeight);
   };
 
-  const calculatePrice = (newWeight) => {
-    const basePrice = 100; // Initial base price
-    const increment = 100; // Amount to increment for every 500 grams
-    const weightIncrement = 500; // Weight increment for each price increase
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
 
-    let newPrice = basePrice; // Start with the base price
-
-    for (let i = weightIncrement; i <= newWeight; i += weightIncrement) {
-      newPrice += increment; // Increment the price by Rs 100 for every 500 grams
+    // Phone number validation
+    if (name === 'phone') {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phone: /^\d+$/.test(value) ? '' : 'Phone number should only contain numbers.',
+      }));
     }
 
-    setPrice(newPrice);
+    // Email validation
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: emailRegex.test(value) ? '' : 'Invalid email format.',
+      }));
+    }
+
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (currentStep === 1) {
+      if (!formData.firstName) {
+        newErrors.firstName = 'First name is required.';
+      }
+
+      if (!formData.lastName) {
+        newErrors.lastName = 'Last name is required.';
+      }
+
+      if (!formData.email) {
+        newErrors.email = 'Email is required.';
+      }
+
+      if (!formData.phone) {
+        newErrors.phone = 'Phone is required.';
+      }
+
+      if (!formData.pincode) {
+        newErrors.pincode = 'Pincode is required.';
+      }
+
+      if (!formData.senderAddress) {
+        newErrors.senderAddress = 'Sender address is required.';
+      }
+    } else if (currentStep === 2) {
+      if (!formData.receiverName) {
+        newErrors.receiverName = 'Receiver name is required.';
+      }
+
+      if (!formData.receiverPinCode) {
+        newErrors.receiverPinCode = 'Receiver pin code is required.';
+      }
+
+      if (!formData.receiverAddress) {
+        newErrors.receiverAddress = 'Receiver address is required.';
+      }
+    } else if (currentStep === 3) {
+      if (!weight) {
+        newErrors.weight = 'Weight is required.';
+      }
+    }
+
+    setErrors(newErrors);
+
+    // Return true if there are no errors
+    return Object.keys(newErrors).length === 0;
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (validateForm() && currentStep == 3) {
+      // Send the form data to the backend using Axios
+      axios
+        .post('http://localhost:3000/addparcel', formData)
+        .then((response) => {
+          // Handle successful response
+          console.log('Parcel added successfully:', response.data);
+          // navigate('/success'); // Navigate to success page
+        })
+        .catch((error) => {
+          // Handle error
+          console.error('Error adding parcel:', error);
+          // Show an error message to the user
+        });
+    }
   };
 
   return (
@@ -56,73 +184,123 @@ function AddParcel() {
           <fieldset>
             <h2 className="fs-title">Add Your Parcel</h2>
             <h3 className="fs-subtitle">This is step 1</h3>
-            <input type="text" name="First Name" placeholder="First Name" />
-            <input type="text" name="Last Name" placeholder="Last Name" />
-            <input type="text" name="email" placeholder="Email" />
-            <input type="text" name="phone" placeholder="Phone" />
-            <input type="text" name="pincode" placeholder="pincode" />
-
-            <textarea name="Sender address" placeholder=" Sender Address"></textarea>
-
             <input
-              type="button"
-              name="next"
-              className="next action-button"
-              value="Next"
-              onClick={handleNextClick}
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
             />
+            {errors.firstName && <span className="error">{errors.firstName}</span>}
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+            {errors.lastName && <span className="error">{errors.lastName}</span>}
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            {errors.phone && <span className="error">{errors.phone}</span>}
+            <input
+              type="text"
+              name="pincode"
+              placeholder="Pincode"
+              value={formData.pincode}
+              onChange={handleChange}
+            />
+            {errors.pincode && <span className="error">{errors.pincode}</span>}
+            <input
+              type="text"
+              name="senderAddress"
+              placeholder="Sender Address"
+              value={formData.senderAddress}
+              onChange={handleChange}
+            />
+            {errors.senderAddress && <span className="error">{errors.senderAddress}</span>}
           </fieldset>
         )}
 
         {currentStep === 2 && (
           <fieldset>
-            <h2 className="fs-title">More Details</h2>
-            <h3 className="fs-subtitle">This is the Step 2</h3>
-            <input type="text" name="Receiver Name" placeholder="Receiver Name" />
-            <input type="text" name="Receiver Pin Code" placeholder="Receiver Pin Code" />
-
-            <textarea name=" Receiver Address" placeholder=" Receiver Address"></textarea>
-
+            <h2 className="fs-title">Social Profiles</h2>
+            <h3 className="fs-subtitle">This is step 2</h3>
             <input
-              type="button"
-              name="previous"
-              className="previous action-button"
-              value="Previous"
-              onClick={handlePreviousClick}
+              type="text"
+              name="receiverName"
+              placeholder="Receiver Name"
+              value={formData.receiverName}
+              onChange={handleChange}
             />
+            {errors.receiverName && <span className="error">{errors.receiverName}</span>}
             <input
-              type="button"
-              name="next"
-              className="next action-button"
-              value="Next"
-              onClick={handleNextClick}
+              type="text"
+              name="receiverPinCode"
+              placeholder="Receiver Pin Code"
+              value={formData.receiverPinCode}
+              onChange={handleChange}
             />
+            {errors.receiverPinCode && <span className="error">{errors.receiverPinCode}</span>}
+            <input
+              type="text"
+              name="receiverAddress"
+              placeholder="Receiver Address"
+              value={formData.receiverAddress}
+              onChange={handleChange}
+            />
+            {errors.receiverAddress && <span className="error">{errors.receiverAddress}</span>}
           </fieldset>
         )}
 
         {currentStep === 3 && (
           <fieldset>
-            <h2 className="fs-title">Additional Details</h2>
+            <h2 className="fs-title">Personal Details</h2>
+            <h3 className="fs-subtitle">This is step 3</h3>
             <input
               type="text"
-              name="Weight"
-              placeholder="Weight(in grams)"
+              name="weight"
+              placeholder="Weight"
               value={weight}
               onChange={handleWeightChange}
             />
-            <p className="Add_Price">Price: Rs {price}</p>
-            <textarea name="Comments" placeholder=" Comments"></textarea>
-
-            <input
-              type="button"
-              name="previous"
-              className="previous action-button"
-              value="Previous"
-              onClick={handlePreviousClick}
+            {errors.weight && <span className="error">{errors.weight}</span>}
+            <textarea
+              name="comments"
+              placeholder="Comments"
+              value={formData.comments}
+              onChange={handleChange}
             />
-            <button className="Add_submit">Submit</button>
           </fieldset>
         )}
+
+        <div className="button-container">
+          {currentStep > 1 && (
+            <button type="button" className='action-buttons' onClick={handlePreviousClick}>
+              Previous
+            </button>
+          )}
+          {currentStep < 3 ? (
+            <button type="button" className='action-buttons' onClick={handleNextClick}>
+              Next
+            </button>
+          ) : (
+            <button type="button" className='action-buttons' onClick={handleSubmit}>Submit</button>
+          )}
+        </div>
       </form>
     </div>
   );

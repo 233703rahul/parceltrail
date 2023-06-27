@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     margin:auto;
+    top: 104px;
 }
   
   .psInput,
@@ -66,4 +67,8 @@
     width: 1px;
     overflow: hidden;
   }
-  
+  .SearchTable{
+    position: relative;
+    top: 17rem;
+    margin-inline: 7rem;
+  }

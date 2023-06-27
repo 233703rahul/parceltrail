@@ -109,7 +109,7 @@ function Register() {
                     value={formData.email}
                     onChange={handleChange}
                   />
-                  {errors.email && <div className="error">{errors.email}</div>}
+                  {errors.email && <div className="error1">{errors.email}</div>}
                 </div>
 
                 <div className="Password_Re">
@@ -125,7 +125,7 @@ function Register() {
                     onChange={handleChange}
                   />
                   {errors.password && (
-                    <div className="error">{errors.password}</div>
+                    <div className="error1">{errors.password}</div>
                   )}
                 </div>
 
