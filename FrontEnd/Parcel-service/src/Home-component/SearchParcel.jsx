@@ -35,7 +35,7 @@ function SearchParcel() {
   const [searchValue, setSearchValue] = useState('');
   const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure();
   const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure();
-  const [placement, setPlacement] = useState('right');
+  const [placement, setPlacement] = useState('bottom');
   const [parcels, setParcels] = useState([]);
 
   useEffect(() => {
@@ -145,7 +145,7 @@ function SearchParcel() {
       <Drawer placement={placement} onClose={onDrawerClose} isOpen={isDrawerOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Parcel Details</DrawerHeader>
           <DrawerBody>
             <p>Some contents...</p>
             <p>Some contents...</p>

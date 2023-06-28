@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Register.css';
 import axios from 'axios';
+import { Button, Wrap, WrapItem, useToast } from '@chakra-ui/react';
 
 function Register() {
   const [formData, setFormData] = React.useState({
     UserName: '',
     email: '',
-    password: ''
+    password: '',
   });
+  const toast = useToast();
+  const statuses = ['success', 'error', 'warning', 'info'];
 
   const [errors, setErrors] = React.useState({});
 
@@ -46,15 +49,25 @@ function Register() {
       axios
         .post('http://localhost:3000/users', formData)
         .then((response) => {
-          alert('Registered successfully:', response.data);
+          toast({
+            title: 'Successfully registered',
+            status: 'success',
+            position: 'top',
+            isClosable: true,
+           
+          });
           // Clear form data or redirect to a success page
         })
         .catch((error) => {
-          alert('Error registering:', error);
+          toast({
+            title: 'Error registering',
+            description: 'An error occurred while registering. Please try again.',
+            status: 'error',
+            position: 'top',
+            isClosable: true,
+          });
           // Handle the error case
         });
-
-
     }
   }
 
@@ -63,21 +76,20 @@ function Register() {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
-        [name]:value
+        [name]: value,
       };
     });
   }
 
   return (
-    <section
-    className="image_Re">
+    <section className="image_Re">
       <div className="d_Re">
         <div className="container3">
           <div className="card_Re">
             <div className="card-body_Re">
               <div className="heading_Re">
-                <img src="\src\assets\logo.png" className="logo_Re" />
-                <img src="\src\assets\Name.png" className="Name_Re" />
+                <img src="\src\assets\logo.png" className="logo_Re" alt="Logo" />
+                <img src="\src\assets\Name.png" className="Name_Re" alt="Name" />
               </div>
 
               <p className="Create_Re">Create an account</p>
@@ -124,25 +136,8 @@ function Register() {
                     value={formData.password}
                     onChange={handleChange}
                   />
-                  {errors.password && (
-                    <div className="error1">{errors.password}</div>
-                  )}
+                  {errors.password && <div className="error1">{errors.password}</div>}
                 </div>
-
-                {/* <div className="form-check d-flex justify-content-center mb-5">
-                  <input
-                    className="Check_box_Re"
-                    type="checkbox"
-                    value=""
-                    id="form2Example3cg"
-                  />
-                  <label className="Agree_Rh" htmlFor="form2Example3g">
-                    I agree all statements in{' '}
-                    <a href="#!" className="Terms_Re">
-                      <u>Terms of service</u>
-                    </a>
-                  </label>
-                </div> */}
 
                 <div className="Register_button">
                   <button type="submit" className="btn_Re">
@@ -160,6 +155,13 @@ function Register() {
             </div>
           </div>
         </div>
+        <Wrap>
+          {statuses.map((status, i) => (
+            <WrapItem key={i}>
+              
+            </WrapItem>
+          ))}
+        </Wrap>
       </div>
     </section>
   );
