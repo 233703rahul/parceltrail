@@ -9,6 +9,7 @@ import Landing from './LandingComponent/Landing.jsx'
 import AddParcel from './AddParcel/AddParcel.jsx'
 import SearchParcel from './Home-component/SearchParcel.jsx'
 import TrackParcel from './Home-component/TrackParcel.jsx'
+import Dashboard from './Home-component/Dashboard.jsx'
 import { ChakraProvider } from '@chakra-ui/react'
 
 
@@ -21,11 +22,13 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 
+                
                 <Route path="/home">
                     <Route index element={<Home/>} />
                     <Route path="/home/AddParcel" element={<AddParcel/>}/>
                     <Route path="/home/SearchParcel" element={<SearchParcel/>} />
                     <Route path="/home/TrackParcel" element={<TrackParcel/>} />
+                    <Route path="/home/dashboard" element={<Dashboard/>} />
                 </Route>
           
                 

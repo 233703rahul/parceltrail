@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './AddParcel.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navigation from '../Home-component/Navigation';
-
-
+import { useToast } from '@chakra-ui/react';
 
 function AddParcel() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const toast = useToast();
+  const statuses = ['success', 'error', 'warning', 'info'];
   const [currentStep, setCurrentStep] = useState(1);
   const [weight, setWeight] = useState('');
   const [formData, setFormData] = useState({
@@ -69,7 +70,6 @@ function AddParcel() {
   const handleWeightChange = (e) => {
     const newWeight = e.target.value;
     setWeight(newWeight);
-    // calculatePrice(newWeight);
   };
 
   const handleChange = (e) => {
@@ -95,7 +95,6 @@ function AddParcel() {
         email: emailRegex.test(value) ? '' : 'Invalid email format.',
       }));
     }
-
   };
 
   const validateForm = () => {
@@ -152,22 +151,36 @@ function AddParcel() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (validateForm() && currentStep == 3) {
+    if (validateForm() && currentStep === 3) {
       // Send the form data to the backend using Axios
       axios
         .post('http://localhost:3000/addparcel', formData)
         .then((response) => {
           // Handle successful response
-          console.log('Parcel added successfully:', response.data);
-          // navigate('/success'); // Navigate to success page
+          // console.log('Parcel added successfully:', response.data);
+          
+          toast({
+            title: 'Parcel Added Successfully',
+            status: 'success',
+            position:'top',
+            isClosable: true,
+          });
+          // navigate('/home/Dashboard'); // Navigate to success page
+          setTimeout(() => {
+            navigate('/home/Dashboard'); // Navigate to success page after 3 seconds
+          }, 2000);
         })
         .catch((error) => {
-          // Handle error
-          console.error('Error adding parcel:', error);
-          // Show an error message to the user
+          toast({
+            title: 'Failed to add Parcel',
+            description: 'An error occurred while Adding Parcel. Please try again.',
+            status: 'error',
+            position: 'top',
+            isClosable: true,
+          });
         });
     }
-  };
+  }
 
   return (
     <div>
@@ -289,16 +302,18 @@ function AddParcel() {
 
         <div className="button-container">
           {currentStep > 1 && (
-            <button type="button" className='action-buttons' onClick={handlePreviousClick}>
+            <button type="button" className="action-buttons" onClick={handlePreviousClick}>
               Previous
             </button>
           )}
           {currentStep < 3 ? (
-            <button type="button" className='action-buttons' onClick={handleNextClick}>
+            <button type="button" className="action-buttons" onClick={handleNextClick}>
               Next
             </button>
           ) : (
-            <button type="button" className='action-buttons' onClick={handleSubmit}>Submit</button>
+            <button type="button" className="action-buttons" onClick={handleSubmit}>
+              Submit
+            </button>
           )}
         </div>
       </form>

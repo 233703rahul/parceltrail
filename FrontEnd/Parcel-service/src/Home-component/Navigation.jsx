@@ -53,10 +53,14 @@ function Navigation() {
           <Navbar.Collapse className="collapse" id="navbarRightAlignExample">
             <Nav className="ms-auto">
               <Nav.Link href="#" active>
-                <Link to="/Home" className="Linknav">
+                <Link to="/home" className="hLinknav">
                   Home
-                </Link>
+                </Link> 
+                <Link to="/home/dashboard" className="Linknav">
+                    Dashboard
+                  </Link>
               </Nav.Link>
+              
               <Nav.Link
                 onClick={() =>
                   document
