@@ -5,6 +5,54 @@
       "email": "a@gmail.com",
       "password": "12we3456",
       "id": 1
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "UserName": "Rahul",
+      "email": "233703@ust-global.com",
+      "password": "sxcksck;sc",
+      "id": 3
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "askjcvjasv",
+      "id": 4
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "askjcvjasv",
+      "id": 5
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "password",
+      "id": 6
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "asvdchjavsd",
+      "id": 7
+    },
+    {
+      "UserName": "Rahul",
+      "email": "r@gmail.com",
+      "password": "hccghchcc",
+      "id": 8
+    },
+    {
+      "UserName": "Rahul",
+      "email": "rahul.ramachandran44@gmail.com",
+      "password": "jasvchackas",
+      "id": 9
     }
   ],
   "addparcel": [
@@ -20,7 +68,58 @@
       "receiverAddress": "reddy family main",
       "comments": "happy",
       "id": 3
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Ramachandran",
+      "email": "233703@ust-global.com",
+      "phone": "67899076",
+      "pincode": "683589",
+      "senderAddress": "Alambalassery House Mekkad p.o. akaparambu",
+      "receiverName": "asckjsacj",
+      "receiverPinCode": "5789990",
+      "receiverAddress": "jvjhvvvh",
+      "comments": "jhcjhvjhv",
+      "id": 4
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Ramachandran",
+      "email": "rahul.ramachandran44@gmail.com",
+      "phone": "919847290606",
+      "pincode": "69699696",
+      "senderAddress": "https://www.w3schools.com",
+      "receiverName": "asckjsacj",
+      "receiverPinCode": "477575",
+      "receiverAddress": "sadcbdbcds",
+      "comments": "askj cjkasbca",
+      "id": 5
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Ramachandran",
+      "email": "rahul.ramachandran44@gmail.com",
+      "phone": "rahul.ramachandran44@gmail.com",
+      "pincode": "919847290606",
+      "senderAddress": "jhvsafhsavf",
+      "receiverName": "asckjsacj",
+      "receiverPinCode": "683589",
+      "receiverAddress": "Alambalassery House Mekkad p.o. akaparambu",
+      "comments": "djvasyf",
+      "id": 6
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Ramachandran",
+      "email": "rahul.ramachandran44@gmail.com",
+      "phone": "rahul.ramachandran44@gmail.com",
+      "pincode": "919847290606",
+      "senderAddress": "sa,jfbjsafaf",
+      "receiverName": "asckjsacj",
+      "receiverPinCode": "683589",
+      "receiverAddress": "Alambalassery House Mekkad p.o. akaparambu",
+      "comments": "csam jasb cj",
+      "id": 7
     }
-    
   ]
 }

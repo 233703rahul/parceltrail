@@ -1,17 +1,31 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import './Home.css';
+import Loader from '../Loader';
 
 import Navigation from './Navigation';
 
 function Home() {
+  
   const handleContactSubmit = (event) => {
     event.preventDefault();
     // Handle contact form submission logic here
   };
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  
 
   return (
     <div>
+      {loading &&<Loader/>}
       <Navigation />
 
       <div className="carousel-container">

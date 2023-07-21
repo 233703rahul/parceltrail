@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Register.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { Button, Wrap, WrapItem, useToast } from '@chakra-ui/react';
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = React.useState({
     UserName: '',
     email: '',
@@ -56,6 +58,10 @@ function Register() {
             isClosable: true,
            
           });
+          setTimeout(() => {
+            navigate('/Login'); // Navigate to success page after 3 seconds
+          }, 2000);
+       
           // Clear form data or redirect to a success page
         })
         .catch((error) => {
