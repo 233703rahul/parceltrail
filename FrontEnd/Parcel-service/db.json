@@ -120,6 +120,19 @@
       "receiverAddress": "Alambalassery House Mekkad p.o. akaparambu",
       "comments": "csam jasb cj",
       "id": 7
+    },
+    {
+      "firstName": "Rahul",
+      "lastName": "Ramachandran",
+      "email": "rahul.ramachandran44@gmail.com",
+      "phone": "19847290606",
+      "pincode": "3o82y83",
+      "senderAddress": "https://www.w3schools.com",
+      "receiverName": "asckjsacj",
+      "receiverPinCode": "862986",
+      "receiverAddress": "kcvkjdjkd",
+      "comments": "def",
+      "id": 8
     }
   ]
 }
